@@ -1,9 +1,9 @@
 import pandas_ta as ta
 
-def generate_signals(df, fast_len=20, slow_len=50, z_len=30, z_buy=-1.5):
+def generate_signals(df, fast_len=20, slow_len=50, z_len=30, z_buy=-1.5, sma_len=200):
     
     # 1. CALCULATE ALL INDICATORS (Using the custom variables)
-    sma_200 = ta.sma(df['Close'], length=200)
+    sma_200 = ta.sma(df['Close'], length=sma_len)
     fast_sma = ta.sma(df['Close'], length=fast_len)
     slow_sma = ta.sma(df['Close'], length=slow_len)
     zscore = ta.zscore(df['Close'], length=z_len)
